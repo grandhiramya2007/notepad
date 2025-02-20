@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Notepad</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Auth Container -->
+    <div id="authContainer" class="container">
+        <div class="auth-box">
+            <h2>Welcome to Notepad</h2>
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <h3>Login</h3>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form hidden">
+                <h3>Sign Up</h3>
+                <input type="text" id="signupName" placeholder="Name" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <div id="passwordStrength"></div>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notes Container -->
+    <div id="notesContainer" class="container hidden">
+        <nav class="top-bar">
+            <h2>My Notes</h2>
+            <button id="logoutBtn">Logout</button>
+        </nav>
+        
+        <!-- New Note Form -->
+        <div class="note-form">
+            <input type="text" id="noteTitle" placeholder="Note Title">
+            <textarea id="noteContent" placeholder="Write your note here..."></textarea>
+            <button id="saveNoteBtn">Save Note</button>
+        </div>
+
+        <!-- Notes List -->
+        <div id="notesList" class="notes-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
